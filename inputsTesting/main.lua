@@ -84,9 +84,6 @@ function love.errorhandler(err)
     print("ErrorHandler: " .. "\n\terr: " .. err)
 end
 
-function love.conf(t)
-    print("Conf: " .. t)
-end
 
 
 
