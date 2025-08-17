@@ -1,17 +1,18 @@
 -- Run with " DEBUG=1 love . "
 -- environment variable DEBUG to debug inputs
 
-function love.load()
-    print("Load")
-    debugMode = os.getenv("DEBUG")
-    print("DebugMode: " .. tostring(debugMode))
-    love.graphics.setBackgroundColor(30/255, 30/255, 30/255) -- dark grey
-end
 
 function love.update(dt)
 end
 
 function love.draw()
+end
+
+function love.load()
+    print("Load")
+    debugMode = os.getenv("DEBUG")
+    print("DebugMode: " .. tostring(debugMode))
+    love.graphics.setBackgroundColor(30/255, 30/255, 30/255) -- dark grey
 end
 
 function love.keypressed(key, scancode, isRepeat)
