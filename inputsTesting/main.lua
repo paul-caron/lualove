@@ -1,5 +1,10 @@
+-- Run with " DEBUG=1 love . "
+-- environment variable DEBUG to debug inputs
+
 function love.load()
     print("Load")
+    debugMode = os.getenv("DEBUG")
+    print("DebugMode: " .. tostring(debugMode))
     love.graphics.setBackgroundColor(30/255, 30/255, 30/255) -- dark grey
 end
 
@@ -10,47 +15,69 @@ function love.draw()
 end
 
 function love.keypressed(key, scancode, isRepeat)
-    print("Key Pressed: " .. "\n\tKey: " .. key .. ", \n\tScancode: " .. scancode .. ", \n\tisRepeat: " .. tostring(isRepeat) )
+    if(debugMode == "1") then
+        print("Key Pressed: " .. "\n\tKey: " .. key .. ", \n\tScancode: " .. scancode .. ", \n\tisRepeat: " .. tostring(isRepeat) )
+    end
 end
 
 function love.keyreleased(key, scancode)
-    print("Key Released: " .. "\n\tKey: " .. key .. ", \n\tScancode: " .. scancode )
+    if(debugMode == "1") then
+        print("Key Released: " .. "\n\tKey: " .. key .. ", \n\tScancode: " .. scancode )
+    end
 end
 
 function love.restart()
-    print("Restart")
+    if(debugMode == "1") then
+        print("Restart")
+    end
 end
 
 function love.textinput(text)
-    print("Text Input: " .. "\n\tText: " .. text )
+    if(debugMode == "1") then
+        print("Text Input: " .. "\n\tText: " .. text )
+    end
 end
 
 function love.mousepressed(x, y, button, istouch, presses)
-    print("Mouse Pressed: " .. "\n\tx: " .. x .. "\n\ty: " .. y .. "\n\tbutton: " .. button .. "\n\tistouch: " .. tostring(istouch) .. "\n\tpresses: " .. presses)
+    if(debugMode == "1") then
+        print("Mouse Pressed: " .. "\n\tx: " .. x .. "\n\ty: " .. y .. "\n\tbutton: " .. button .. "\n\tistouch: " .. tostring(istouch) .. "\n\tpresses: " .. presses)
+    end
 end
 
 function love.mousereleased(x, y, button, istouch, presses)
-    print("Mouse Released: " .. "\n\tx: " .. x .. "\n\ty: " .. y .. "\n\tbutton: " .. button .. "\n\tistouch: " .. tostring(istouch) .. "\n\tpresses: " .. presses)
+    if(debugMode == "1") then
+        print("Mouse Released: " .. "\n\tx: " .. x .. "\n\ty: " .. y .. "\n\tbutton: " .. button .. "\n\tistouch: " .. tostring(istouch) .. "\n\tpresses: " .. presses)
+    end
 end
 
 function love.mousemoved(x, y, dx, dy, istouch)
-    print("Mouse Moved: " .. "\n\tx: " .. x .. "\n\ty: " .. y .. "\n\tdx: " .. dx .. "\n\tdy: " .. dy .. "\n\tistouch: " .. tostring(istouch) )
+    if(debugMode == "1") then
+        print("Mouse Moved: " .. "\n\tx: " .. x .. "\n\ty: " .. y .. "\n\tdx: " .. dx .. "\n\tdy: " .. dy .. "\n\tistouch: " .. tostring(istouch) )
+    end
 end
 
 function love.wheelmoved(x, y)
-    print("Mouse Wheel Moved: " .. "\n\tx: " .. x .. "\n\ty: " .. y )
+    if(debugMode == "1") then
+        print("Mouse Wheel Moved: " .. "\n\tx: " .. x .. "\n\ty: " .. y )
+    end
 end
 
 function love.resize(w, h)
-    print("Resize: " .. "\n\tw: " .. w .. "\n\th: " .. h)
+    if(debugMode == "1") then
+        print("Resize: " .. "\n\tw: " .. w .. "\n\th: " .. h)
+    end
 end
 
 function love.focus(f)
-    print("Focus: " .. tostring(f))
+    if(debugMode == "1") then
+        print("Focus: " .. tostring(f))
+    end
 end
 
 function love.quit()
-    print("Quit")
+    if(debugMode == "1") then
+        print("Quit")
+    end
 end
 
 function love.errorhandler(err)
@@ -60,6 +87,9 @@ end
 function love.conf(t)
     print("Conf: " .. t)
 end
+
+
+
 
 
 
